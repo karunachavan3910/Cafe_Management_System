@@ -1,0 +1,80 @@
+<style>
+    .container {
+        
+        background-color: #fff;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        width:100%;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 50%;
+        padding: 0px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+
+    input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    .error {
+        color: red;
+        margin-top: 5px;
+        text-align: center;
+    }
+    .btn{
+                background-color: #04AA6D;
+                border: none;
+                color: white;
+                padding: 10px 35px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+                justify-content: center;
+                align-items: center; 
+            }
+            .btn a{
+                text-decoration: none;
+                color: white;
+            }
+</style>
+
+<br><br>
+<div class="container">
+<table class="tab" style="width:40%">
+    <tr style="color:brown; padding-left:35%">
+        <td>Admin LOGIN</td>
+    </tr>
+  
+<div *ngIf="loginStatus==0" class="menu" >
+<h4>Username : <input type="text" [(ngModel)]="username"></h4>
+<h4>Password : <input type="password" [(ngModel)]="password"></h4><br>
+
+<button (click)="Login()" class="btn btn-success" type="submit"><a href="addproduct">Login</a></button><br>
+<br><br>
+</div>
+</table>
+</div>

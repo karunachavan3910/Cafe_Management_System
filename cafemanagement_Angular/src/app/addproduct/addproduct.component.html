@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rich Richi Cafe</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+
+    .container {
+        width: 600px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+
+    input[type="text"], input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    .btnn {
+        background-color: #04AA6D;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center; 
+    }
+
+    .btnn a {
+        text-decoration: none;
+        color: white;
+    }
+
+    table {
+        width: 70%;
+        border-collapse: collapse;
+        margin-left: 20%;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h2>{{isEditMode ? 'Update Product' : 'Add Product'}}</h2><br>
+    Code:<input type="number" [(ngModel)]="code"><br>
+    Name:<input type="text" [(ngModel)]="name"><br>
+    Price:<input type="number" [(ngModel)]="price"><br>
+    Quantity:<input type="number" [(ngModel)]="qnt"><br>
+    <button type="submit" (click)="add1()" class="btnn">{{isEditMode ? 'Update Product' : 'Add Product'}}</button>
+</div>
+
+<h2>View Product</h2><br>
+<table border="1" class="table">
+    <tr class="tr">
+      <th>Code</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Qnt</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let obj of list">
+      <td>{{obj.code}}</td>
+      <td>{{obj.name}}</td>
+      <td>{{obj.price}}</td>
+      <td>{{obj.qnt}}</td>
+      <td>
+        <button (click)="edit(obj)" class="btnn">Edit</button>
+        <button (click)="delete(obj)" class="btnn btn-danger" onclick="return confirm('Are you sure?');">Delete</button>
+      </td>
+    </tr>
+</table>
+</body>
+</html>
